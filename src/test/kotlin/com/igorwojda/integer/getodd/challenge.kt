@@ -4,7 +4,9 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun filterOdd(list: List<Int>): List<Int> {
-    TODO("not implemented")
+    val oddList : ArrayList<Int> = ArrayList()
+    list.forEach { nr -> if(nr%2!=0) oddList.add(nr)}
+    return oddList
 }
 
 private class Test {
