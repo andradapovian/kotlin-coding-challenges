@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 private fun formatTrainRoute(stations: List<String>): String {
     var text = "Train is calling at "
 
-    if (stations.size>=2) {
+    if (stations.size >= 2) {
         stations.dropLast(2).forEach { text += "$it, " }
         text += "${stations.dropLast(1).last()} and ${stations.last()}"
     }else text += stations[0]
@@ -15,6 +15,7 @@ private fun formatTrainRoute(stations: List<String>): String {
 }
 
 private class Test {
+
     @Test
     fun `formatTrainRoute list "Luton"`() {
         formatTrainRoute(listOf("Luton")) shouldBeEqualTo "Train is calling at Luton"
