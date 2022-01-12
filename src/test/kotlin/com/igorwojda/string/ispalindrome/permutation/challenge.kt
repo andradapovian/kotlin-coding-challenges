@@ -4,7 +4,15 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun isPermutationPalindrome(str: String): Boolean {
-    TODO("not implemented")
+    var remember:Boolean=false
+    for (index in 0..(str.length/2)){
+        if (!str.substring(index+1).contains(str[index])){
+            if (!remember)
+                remember=true
+            else return false
+        }
+    }
+    return true
 }
 
 private class Test {
