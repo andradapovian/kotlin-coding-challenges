@@ -4,7 +4,17 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun encodeCaesarCipher(str: String, shift: Int): String {
-    TODO("not implemented")
+    var finalString = ""
+    str.forEach {
+        var c=it
+        for (i in (1..shift)){
+            c = if ( c >= 'z' )
+                'a'
+            else c + 1
+        }
+        finalString+=c
+    }
+    return finalString
 }
 
 private class Test {
