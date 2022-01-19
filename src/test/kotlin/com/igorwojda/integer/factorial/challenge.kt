@@ -2,12 +2,26 @@ package com.igorwojda.integer.factorial
 
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
+import kotlin.system.measureNanoTime
+import kotlin.system.measureTimeMillis
 
-private fun factorial(n: Int): Int {
-    return if (n<1)
+tailrec fun factorialTailRec(n: Int, fact: Int = 1): Int {
+    return if (n <= 1) fact
+    else
+        factorialTailRec(n - 1, fact * n)
+}
+
+fun factorialClassicRec(n: Int): Int {
+    return if (n < 1)
         1
     else
-        n * factorial(n-1)
+        n * factorialClassicRec(n - 1)
+}
+
+private fun factorial(n: Int): Int {
+    return (1..n).fold(1) { fact, elem ->
+        fact * elem
+    }
 }
 
 class RecursiveFactorial {
@@ -28,6 +42,27 @@ class RecursiveFactorial {
 
     @Test
     fun `factorial 10 should equal 3628800`() {
-        factorial(10) shouldBeEqualTo 3628800
+        val time = measureNanoTime {
+            factorial(10) shouldBeEqualTo 3628800
+        }
+        println("factorial: $time nano")
+
+    }
+
+    @Test
+    fun `factorial2 10 should equal 3628800`() {
+        val time = measureNanoTime {
+            factorialTailRec(10) shouldBeEqualTo 3628800
+        }
+        println("factorialTailRec: $time nano")
+
+    }
+
+    @Test
+    fun `factorial3 10 should equal 3628800`() {
+        val time = measureNanoTime {
+            factorialClassicRec(10) shouldBeEqualTo 3628800
+        }
+        println("factorialClassicRec: $time nano")
     }
 }

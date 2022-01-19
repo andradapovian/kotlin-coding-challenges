@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test
 
 private fun countUniqueValues(list: List<Int>): Int {
     val set: MutableSet<Int> = mutableSetOf()
-        list.map { set.add(it) }
-        return set.size
+    list.forEach { set.add(it) }
+    return set.size
 }
 
 private class Test {
