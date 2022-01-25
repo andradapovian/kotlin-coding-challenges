@@ -4,11 +4,10 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 fun generateSteps(n: Int): List<String> {
-    return  (0 until  n).mapIndexed {index,value ->
-        "#".repeat(index+1)+ " ".repeat(n-index-1)
+    return (0 until n).map {
+        "#".repeat(it + 1) + " ".repeat(n - it - 1)
     }
 }
-
 
 private class Test {
     @Test

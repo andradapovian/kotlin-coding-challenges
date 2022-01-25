@@ -4,20 +4,14 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 fun generatePyramid(n: Int): List<String> {
-    var list = mutableListOf<String>()
-    for (i in 0 until n){
 
-        var line=""
-        for (j in 0 until n*2-1){
-            line += if (j in (n-i-1 until n+i))
-                '#'
-            else
-                ' '
-        }
-        list.add(line)
-        println(line)
+    val numColumns = (n * 2) - 1
+
+    return (0 until n).map {
+        val numHashes = (it * 2) + 1
+        val numSpaces = numColumns - numHashes
+        " ".repeat(numSpaces / 2) + "#".repeat(numHashes) + " ".repeat(numSpaces / 2)
     }
-    return list
 }
 
 private class Test {
@@ -63,6 +57,7 @@ private class Test {
             it[4] shouldBeEqualTo "#########"
         }
     }
+
     @Test
     fun `pyramid n = 6`() {
         generatePyramid(6).also {
