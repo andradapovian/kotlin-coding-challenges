@@ -4,7 +4,8 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun addUpTo(n: Int): Int {
-    TODO("not implemented")
+    return (1..n).sum()
+//    return (n*(1+n))/2
 }
 
 private class Test {

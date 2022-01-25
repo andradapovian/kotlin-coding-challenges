@@ -4,7 +4,13 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun maxOccurrentChar(str: String): Char? {
-    TODO("not implemented")
+    return str
+        .toLowerCase()
+        .filter { it.isLetterOrDigit() }
+        .groupingBy { it }
+        .eachCount()
+        .maxByOrNull { it.value }
+        ?.key
 }
 
 private class Test {

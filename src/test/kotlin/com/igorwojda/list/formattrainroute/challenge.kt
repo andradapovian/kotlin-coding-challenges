@@ -4,10 +4,17 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun formatTrainRoute(stations: List<String>): String {
-    TODO("not implemented")
+    val text = "Train is calling at "
+    if (stations.size < 2)
+        return stations.joinToString(prefix = text)
+
+    val firstStations = stations.dropLast(1).joinToString(prefix = text)
+    val lastStations = stations.takeLast(1).joinToString { it }
+    return "$firstStations and $lastStations"
 }
 
 private class Test {
+
     @Test
     fun `formatTrainRoute list "Luton"`() {
         formatTrainRoute(listOf("Luton")) shouldBeEqualTo "Train is calling at Luton"

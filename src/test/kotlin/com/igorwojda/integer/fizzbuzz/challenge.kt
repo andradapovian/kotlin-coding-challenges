@@ -3,8 +3,35 @@ package com.igorwojda.integer.fizzbuzz
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
+//private fun fizzBuzz(n: Int): List<String> {
+//    val list = mutableListOf<String>()
+//    (1..n).forEach{nr ->
+//        if ((nr%3 == 0) && (nr%5==0))
+//            list.add("FizzBuzz")
+//        else {
+//            if (nr % 3 == 0)
+//                list.add("Fizz")
+//            if (nr % 5 == 0)
+//                list.add("Buzz")
+//        }
+//        if ((nr%3 != 0) && (nr%5 != 0)){
+//            list.add(nr.toString())
+//        }
+//    }
+//    return list
+//}
+
 private fun fizzBuzz(n: Int): List<String> {
-    TODO("not implemented")
+    val list = mutableListOf<String>()
+    (1..n).forEach{nr ->
+        when{
+            (nr % 3 == 0) && (nr % 5 == 0) -> list.add("FizzBuzz")
+            (nr % 3 == 0) -> list.add("Fizz")
+            (nr % 5 == 0) -> list.add("Buzz")
+            else -> list.add(nr.toString())
+        }
+    }
+    return list
 }
 
 private class Test {

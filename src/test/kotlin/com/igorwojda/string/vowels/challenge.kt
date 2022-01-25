@@ -1,10 +1,12 @@
 package com.igorwojda.string.vowels
 
 import org.amshove.kluent.shouldBeEqualTo
+import org.amshove.kluent.shouldBeInIgnoringCase
+import org.amshove.kluent.shouldNotBeNull
 import org.junit.jupiter.api.Test
 
 private fun vowels(str: String): Int {
-    TODO("not implemented")
+    return str.filter { "aeiouy".contains(it, ignoreCase = true) }.count()
 }
 
 private class Test {

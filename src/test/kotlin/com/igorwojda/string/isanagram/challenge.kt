@@ -3,8 +3,31 @@ package com.igorwojda.string.isanagram
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
+private fun countLetterOccurrence(string: String): HashMap<Char, Int> {
+    val counter = hashMapOf<Char, Int>()
+    for (c in string){
+        val char = c.toLowerCase()
+        if (char.isLetter()){
+            if (counter.containsKey(char))
+                counter[char] = counter.getValue(char) + 1
+            else
+                counter[char] = 1
+        }
+    }
+    return counter
+}
+
+private fun countLetterOccurrence2(string: String): Map<Char, List<Char>> {
+    return string
+        .filter { it.isLetterOrDigit() }
+        .toLowerCase()
+        .groupBy { it }
+}
+
 private fun isAnagram(str1: String, str2: String): Boolean {
-    TODO("not implemented")
+
+    return countLetterOccurrence2(str1) == countLetterOccurrence2(str2)
+
 }
 
 private class Test {

@@ -4,7 +4,31 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun isTolerantPalindrome(str: String, characterRemoved: Boolean = false): Boolean {
-    TODO("not implemented")
+    println("called for: isTolerantPalindrome($str, $characterRemoved)")
+
+    return if (str.isEmpty() || str.length <= 1) {
+        true
+    } else {
+        if (str.first() == str.last()) {
+            isTolerantPalindrome(str.substring(1, str.length - 1), characterRemoved)
+        }
+    else{
+        if (characterRemoved)
+            false
+        else {
+            if (str.length == 2) {
+                true
+            }
+            isTolerantPalindrome(str.substring(1, str.length), true) || isTolerantPalindrome(
+                str.substring(
+                    0,
+                    str.length - 1
+                ), true
+            )
+
+        }
+    }
+}
 }
 
 private class Test {
