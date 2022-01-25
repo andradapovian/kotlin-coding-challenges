@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 
 private fun product(list: List<Int>): Int {
     return list.reduce { product, element ->
-        product * element
+        product.times(element)
     }
 }
 

@@ -5,26 +5,9 @@ import org.junit.jupiter.api.Test
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 
-//private fun reverseInt(i: Int): Int {
-//    var number = i
-//    number=number
-//    var reversed= 0
-//    while(number!=0){
-//        var last = i%10
-//        number /= 10
-//        reversed = reversed*10 +last
-//    }
-//    return reversed
-//}
-
 private fun reverseInt(i: Int): Int{
-    var number=i.absoluteValue
-
-    if(number<0) {
-        number *= -1
-
-    }
-    var reverse = number.toString().reversed()
+    val number=i.absoluteValue
+    val reverse = number.toString().reversed()
     return reverse.toInt() * i.sign
 }
 

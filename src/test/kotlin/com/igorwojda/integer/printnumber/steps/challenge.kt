@@ -4,12 +4,7 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun printNumber(n: Int, step: Int = 1): List<Int> {
-    val list = mutableListOf<Int>()
-
-    for (index in n downTo 1 step step){
-        list.add(index)
-    }
-    return  list
+   return (n downTo 1 step step).map { it }
 }
 
 class RecursivePrintNumberWithSteps {

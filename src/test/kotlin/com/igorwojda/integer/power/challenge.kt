@@ -2,15 +2,9 @@ package com.igorwojda.integer.power
 
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
-//
-//private fun power(base: Int, exponent: Int): Int {
-//    if (exponent > 0)
-//        return base * power(base, exponent-1)
-//    return 1
-//}
 
 private fun power(base: Int, exponent: Int): Int {
-    return List(exponent) { base }.reduce{multi, elem -> multi * elem}
+    return List(exponent) { base }.reduce { multi, elem -> multi.times(elem) }
 }
 
 private class Test {

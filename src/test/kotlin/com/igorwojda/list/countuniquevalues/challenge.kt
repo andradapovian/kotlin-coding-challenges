@@ -4,9 +4,7 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun countUniqueValues(list: List<Int>): Int {
-    val set: MutableSet<Int> = mutableSetOf()
-    list.forEach { set.add(it) }
-    return set.size
+    return list.toSet().size
 }
 
 private class Test {
